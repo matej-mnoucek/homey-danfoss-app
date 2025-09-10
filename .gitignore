@@ -1,0 +1,16 @@
+# Node
+node_modules/
+npm-debug.log*
+
+# Homey
+.homeycompose/
+.homeybuild/
+.homeyignore
+.env
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
