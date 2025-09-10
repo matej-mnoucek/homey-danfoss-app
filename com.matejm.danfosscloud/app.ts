@@ -5,6 +5,7 @@ module.exports = class DanfossCloudApp extends Homey.App {
   async onInit() {
     this.log('DanfossCloudApp has been initialized');
     const token = await DanfossAPI.getAccessToken()
-    this.log(token)
+    const devices = await DanfossAPI.listDevices(token.access_token)
+    this.log(devices)
   }
 }
