@@ -1,3 +1,5 @@
+import {Command, Status} from "./danfoss-types";
+
 import("node-fetch");
 import Homey from "homey";
 
@@ -41,18 +43,13 @@ export type DefaultErrorResponse = {
     message_id: string;
 }
 
-export type StatusItem = {
-    code: string;
-    value: string | number | boolean;
-}
-
 export type Device = {
     active_time: number;
     create_time: number;
     id: string;
     name: string;
     online: boolean;
-    status: StatusItem[];
+    status: Status[];
     sub: boolean;
     time_zone: string;
     update_time: number;
@@ -111,11 +108,6 @@ export async function getDeviceDetail(accessToken: string, deviceId: string): Pr
     return device;
 }
 
-export type Command = {
-    code: string;
-    value: string | number | boolean;
-}
-
 export type IssueDeviceCommandBody = {
     commands: Command[];
 }
@@ -151,7 +143,7 @@ export async function issueDeviceCommand(accessToken: string, deviceId: string, 
 }
 
 export type QueryLatestDeviceStatusResponse = {
-    result: StatusItem[];
+    result: Status[];
     t: number;
 }
 
